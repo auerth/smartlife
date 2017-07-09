@@ -24,7 +24,6 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import de.ghse.smartlife.R;
 import de.ghse.smartlife.custom.CustomAdapter;
 import de.ghse.smartlife.custom.DataSwitch;
 import de.ghse.smartlife.objects.Element;

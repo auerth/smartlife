@@ -7,44 +7,68 @@ import java.util.ArrayList;
 
 public class Room {
 
-    // Anfang Attribute
+    // Attribute
     private String name;
-    private ArrayList<Element> elementArrayList = new ArrayList<>();
+    private ArrayList<Element> arrayListElement = new ArrayList<>();
     private int id;
-    // Ende Attribute
+    // Attribute
 
-    // Anfang Methoden
+    // Methoden
+    /*
+    *Call when Room was created
+     */
     public Room(int id) {
         this.id = id;
     }
 
+    /*
+    *Get name of room
+     */
     public String getName() {
         return name;
     }
 
+    /*
+    *Set name of room
+    */
     public void setName(String name) {
         this.name = name;
     }
 
+    /*
+    *Get id of room
+    */
     public int getId() {
         return this.id;
     }
 
-    //Add element to elementArrayList
+    /*
+    *Add Element to arrayListElement
+     */
     public void addElement(Element element) {
-        elementArrayList.add(element);
+        arrayListElement.add(element);
     }
 
+    /*
+    *Remove Element from arrayListElement
+    */
     public void removeElement(int pos) {
-        Log.e(getName(), "Elements: " + elementArrayList.size());
-        elementArrayList.remove(pos);
+        Log.e(getName(), "Elements: " + arrayListElement.size());
+        arrayListElement.remove(pos);
     }
 
+    /*
+    *Get Element by position from arrayListElement
+     */
     public Element getElementByPosition(int pos) {
-        return elementArrayList.get(pos);
+        return arrayListElement.get(pos);
     }
 
+    /*
+    *Get size of arrayListElement
+     */
     public int getSizeOfElementList() {
-        return elementArrayList.size();
+        return arrayListElement.size();
     }
+    // Methoden
 }

@@ -1,27 +1,36 @@
 package de.ghse.smartlife.custom;
 
-/**
- * Created by Thorben Auer on 06.04.2017.
- */
 
 public class DataSwitch {
 
-    String name;
+    private String name;
 
+    /*
+    *Call when DataSwitch was created
+     */
     public DataSwitch(String name) {
         this.name = name;
-
     }
 
+    /*
+    *Get name of DataSwitch
+     */
     public String getName() {
         return name;
     }
 
-
-    public void onButtonClick(int pos,boolean isCheckec) {
+    /*
+    *Button method to override
+     */
+    public void onButtonClick(int pos, boolean isCheckec) {
 
     }
-    public void onItemClick(int position){
+
+    /*
+    *Method to override
+    * Call when item in recyclerView clicked
+     */
+    public void onItemClick(int position) {
 
     }
 }

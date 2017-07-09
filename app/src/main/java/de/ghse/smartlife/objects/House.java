@@ -10,47 +10,74 @@ public class House {
     private String ip;
     // Attribute
 
-    // Methoden
-    public void setIp(String ip) {
-        this.ip = ip;
-    }
 
+    // Methoden
+    /*
+    *Get ip for server
+     */
     public String getIp() {
         return this.ip;
     }
 
-    public void setPort(int port) {
-        this.port = port;
+    /*
+    *Set ip for ServerConnection
+     */
+    public void setIp(String ip) {
+        this.ip = ip;
     }
 
+    /*
+    *Get port for ServerConnection
+     */
     public int getPort() {
         return this.port;
     }
 
-    //get all rooms
+    /*
+    *Set port for ServerConnection
+     */
+    public void setPort(int port) {
+        this.port = port;
+    }
+
+    /*
+    *Get room from arrayListRoom
+     */
     public Room getRoom(int pos) {
         return arrayListRoom.get(pos);
     }
-    public int getArrayListRoomSize(){
+
+    /*
+    *Get size of arrayListRoom
+     */
+    public int getArrayListRoomSize() {
         return arrayListRoom.size();
     }
 
-    //Add room to array List
+    /*
+    *Add room to arrayListRoom
+     */
     public void addRoom(Room room) {
         this.arrayListRoom.add(room);
     }
 
-    //Remove room from arrayList
+    /*
+    *Remove rome by position from arrayListRoom
+     */
     public void removeRoom(int pos) {
         arrayListRoom.remove(pos);
     }
 
-    //get name
+    /*
+    *Get name of House
+     */
     public String getName() {
         return name;
     }
 
-    //set name
+    /*
+    *Set name of house
+     */
     public void setName(String name) {
         this.name = name;
     }

@@ -24,7 +24,6 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.ghse.smartlife.R;
 import de.ghse.smartlife.objects.Backgroundworker;
 import de.ghse.smartlife.objects.Element;
 import de.ghse.smartlife.objects.House;
@@ -50,10 +49,10 @@ public class Control {
 
     }
 
-    public List<String> getArrayListSpinnerHouse(){
+    List<String> getArrayListSpinnerHouse(){
         return arrayListSpinnerHouse;
     }
-    public List<String> getArrayListSpinnerRoom(){
+    List<String> getArrayListSpinnerRoom(){
         return arrayListSpinnerRoom;
     }
 
