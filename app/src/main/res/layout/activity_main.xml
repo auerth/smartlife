@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="de.ghse.smarthome.MainActivity">
+    tools:context="de.ghse.smartlife.MainActivity">
 
     <Spinner
         android:id="@+id/spinnerHouse"

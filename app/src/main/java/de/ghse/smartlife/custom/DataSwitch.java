@@ -1,4 +1,4 @@
-package de.ghse.smarthome.custom;
+package de.ghse.smartlife.custom;
 
 /**
  * Created by Thorben Auer on 06.04.2017.

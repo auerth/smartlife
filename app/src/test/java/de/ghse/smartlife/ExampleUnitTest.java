@@ -1,4 +1,4 @@
-package de.ghse.smarthome;
+package de.ghse.smartlife;
 
 import org.junit.Test;
 

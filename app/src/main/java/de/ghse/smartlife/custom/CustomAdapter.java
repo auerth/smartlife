@@ -1,29 +1,21 @@
-package de.ghse.smarthome.custom;
+package de.ghse.smartlife.custom;
 
 import android.content.Context;
-import android.provider.ContactsContract;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SwitchCompat;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import java.util.ArrayList;
 
-import de.ghse.smarthome.Control;
-import de.ghse.smarthome.MainActivity;
-import de.ghse.smarthome.R;
-import de.ghse.smarthome.objects.Element;
+import de.ghse.smartlife.Control;
+import de.ghse.smartlife.MainActivity;
+import de.ghse.smartlife.R;
+import de.ghse.smartlife.objects.Element;
 
 /**
  * Created by Thorben Auer on 06.04.2017.
@@ -64,7 +56,7 @@ public class CustomAdapter extends
         final DataSwitch c = dataSet.get(position);
         holder.name.setText(c.name);
 
-        if(position == 0 || this.c.arrayListHouse.get(mainActivity.getSelectedHouseIndex()-1).getAllRooms().get(mainActivity.getSelectedRoomIndex()-1).getElementByPosition(position-1).getType() == Element.Type.temperature) {
+        if(position == 0 || this.c.getHouse(mainActivity.getSelectedHouseIndex()-1).getRoom(mainActivity.getSelectedRoomIndex()-1).getElementByPosition(position-1).getType() == Element.Type.temperature) {
             holder.tbOn.setVisibility(View.GONE);
             holder.name.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_HORIZONTAL);
         }

@@ -1,4 +1,4 @@
-package de.ghse.smarthome;
+package de.ghse.smartlife;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -24,14 +24,15 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.ghse.smarthome.objects.Backgroundworker;
-import de.ghse.smarthome.objects.Element;
-import de.ghse.smarthome.objects.House;
-import de.ghse.smarthome.objects.Room;
-import de.ghse.smarthome.objects.TCPStream;
+import de.ghse.smartlife.R;
+import de.ghse.smartlife.objects.Backgroundworker;
+import de.ghse.smartlife.objects.Element;
+import de.ghse.smartlife.objects.House;
+import de.ghse.smartlife.objects.Room;
+import de.ghse.smartlife.objects.TCPStream;
 
-import static de.ghse.smarthome.Control.Spinners.house;
-import static de.ghse.smarthome.Control.Spinners.room;
+import static de.ghse.smartlife.Control.Spinners.house;
+import static de.ghse.smartlife.Control.Spinners.room;
 
 public class Control {
     //Array Strings for Spinners
@@ -256,7 +257,7 @@ public class Control {
     /*
     *Returns a House by its position in arrayList
      */
-    House getHouse(int pos) {
+    public House getHouse(int pos) {
         return arrayListHouse.get(pos);
     }
 

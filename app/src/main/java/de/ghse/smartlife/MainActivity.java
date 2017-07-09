@@ -1,4 +1,4 @@
-package de.ghse.smarthome;
+package de.ghse.smartlife;
 
 import android.app.Dialog;
 import android.content.pm.PackageManager;
@@ -24,10 +24,11 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import de.ghse.smarthome.custom.CustomAdapter;
-import de.ghse.smarthome.custom.DataSwitch;
-import de.ghse.smarthome.objects.Element;
-import de.ghse.smarthome.objects.House;
+import de.ghse.smartlife.R;
+import de.ghse.smartlife.custom.CustomAdapter;
+import de.ghse.smartlife.custom.DataSwitch;
+import de.ghse.smartlife.objects.Element;
+import de.ghse.smartlife.objects.House;
 
 
 public class MainActivity extends AppCompatActivity {

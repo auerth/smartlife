@@ -1,4 +1,4 @@
-package de.ghse.smarthome;
+package de.ghse.smartlife;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("de.ghse.smarthome", appContext.getPackageName());
+        assertEquals("de.ghse.smartlife", appContext.getPackageName());
     }
 }

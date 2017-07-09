@@ -1,4 +1,4 @@
-package de.ghse.smarthome.objects;
+package de.ghse.smartlife.objects;
 
 import java.io.IOException;
 import java.io.PrintWriter;

@@ -1,4 +1,4 @@
-package de.ghse.smarthome.objects;
+package de.ghse.smartlife.objects;
 
 import android.util.Log;
 
