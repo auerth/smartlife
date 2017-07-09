@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">SmartLife</string>
+    <string name="dialogHouse">House</string>
+    <string name="dialogRoom">Room</string>
+    <string name="dialogElement">Element</string>
+    <string name="hintId">ID</string>
+    <string name="dialogTemperature">Temperature</string>
 </resources>

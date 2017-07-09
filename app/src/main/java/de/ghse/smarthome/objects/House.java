@@ -2,39 +2,58 @@ package de.ghse.smarthome.objects;
 
 import java.util.ArrayList;
 
-/**
- * Created by Thorben Auer on 03.04.2017.
- */
-
 public class House {
-    // Anfang Attribute
-    private ArrayList<Room> roomArrayList= new ArrayList<Room>();
+    // Attribute
+    private ArrayList<Room> arrayListRoom = new ArrayList<>();
     private String name;
-    private String owner;
-    // Ende Attribute
+    private int port;
+    private String ip;
+    // Attribute
 
-    // Anfang Methoden
-    public Room getRoomById(int i) {
-        return roomArrayList.get(i);
+    // Methoden
+    public void setIp(String ip) {
+        this.ip = ip;
     }
 
+    public String getIp() {
+        return this.ip;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
+    }
+
+    public int getPort() {
+        return this.port;
+    }
+
+    //get all rooms
+    public Room getRoom(int pos) {
+        return arrayListRoom.get(pos);
+    }
+    public int getArrayListRoomSize(){
+        return arrayListRoom.size();
+    }
+
+    //Add room to array List
     public void addRoom(Room room) {
-        this.roomArrayList.add(room);
+        this.arrayListRoom.add(room);
     }
 
+    //Remove room from arrayList
+    public void removeRoom(int pos) {
+        arrayListRoom.remove(pos);
+    }
+
+    //get name
     public String getName() {
         return name;
     }
 
+    //set name
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getOwner() {
-        return owner;
-    }
 
-    public void setOwner(String owner) {
-        this.owner = owner;
-    }
 }
