@@ -10,7 +10,6 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
-        android:text="TextView"
         android:textAlignment="center"
         android:textSize="20sp" />
 
@@ -23,7 +22,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
-        android:hint="Name" />
+        android:hint="@string/hintName" />
 
     <EditText
         android:id="@+id/etID"
@@ -34,7 +33,6 @@
         android:layout_marginTop="10dp"
         android:ems="10"
         android:inputType="number"
-        android:hint="On-Code"
 />
     <Spinner
         android:id="@+id/spinnerType"
@@ -44,7 +42,6 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
         android:ems="10"
-        android:hint="Off-Code"
         android:inputType="textPersonName" />
 
     <Button
@@ -54,5 +51,5 @@
         android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Okay" />
+        android:text="@string/dialogOkay" />
 </LinearLayout>

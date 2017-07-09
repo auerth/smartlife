@@ -5,4 +5,10 @@
     <string name="dialogElement">Element</string>
     <string name="hintId">ID</string>
     <string name="dialogTemperature">Temperature</string>
+    <string name="hintName">Name</string>
+    <string name="dialogOkay">Okay</string>
+    <string name="hintPort">Port</string>
+    <string name="hintIP">IP</string>
+    <string name="menuSave">Save entry\'s</string>
+    <string name="menuDelete">Delete saves</string>
 </resources>
