@@ -10,10 +10,11 @@ public class TCPStream {
     private Scanner input;
     private PrintWriter output;
 
-    /*
-    *Call when TCPStream was created
-    * @param ip server ip to send data
-    * @param port server port to send data
+    /**
+     * Call when TCPStream was created
+     *
+     * @param ip   server ip to send data
+     * @param port server port to send data
      */
     public TCPStream(String ip, int port) throws IOException {
         Socket s = new Socket(ip, port);
@@ -21,9 +22,10 @@ public class TCPStream {
         output = new PrintWriter(s.getOutputStream());            //Create writer to send data to server
     }
 
-    /*
-    *Send data to Server
-    * @param data data to send to server
+    /**
+     * Send data to Server
+     *
+     * @param data data to send to server
      */
     public int sendData(final String[] data) throws java.io.IOException {
 

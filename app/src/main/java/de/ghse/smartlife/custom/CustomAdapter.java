@@ -30,25 +30,25 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     private MainActivity mainActivity;
     private int index = 0;
 
-    /*
-    *Call when CustomAdapter was created
-    *
-    * @param dataList List of entry's
-    * @param mainActivity Object of MainActivity
-    * @param c Object of Control
-    */
+    /**
+     * Call when CustomAdapter was created
+     *
+     * @param dataList     List of entry's
+     * @param mainActivity Object of MainActivity
+     * @param c            Object of Control
+     */
     public CustomAdapter(ArrayList<DataSwitch> dataList, MainActivity mainActivity, Control c) {
         this.dataSet = dataList;
         this.c = c;
         this.mainActivity = mainActivity;
     }
 
-    /*
-    *Call on bind element to RecyclerView
-    *
-    *@param MyViewHolder holder
-    *@param position postiion of entry
-    */
+    /**
+     * Call on bind element to RecyclerView
+     *
+     * @param holder   holder
+     * @param position postiion of entry
+     */
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     public void onBindViewHolder(MyViewHolder holder, @SuppressLint("RecyclerView") final int position) {
@@ -86,20 +86,20 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     }
 
-    /*
-    *Get size of dataSet
-    */
+    /**
+     * Get size of dataSet
+     */
     @Override
     public int getItemCount() {
         return dataSet.size();
     }
 
-    /*
-    *Call on create
-    *
-    * @param parent ViewGroup
-    * @param viewType int
-    */
+    /**
+     * Call on create
+     *
+     * @param parent   ViewGroup
+     * @param viewType int
+     */
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
@@ -114,9 +114,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         Switch tbOn;
         View v;
 
-        /*
-        *Call when MyViewHolder was created
-        */
+        /**
+         * Call when MyViewHolder was created
+         */
         MyViewHolder(View view) {
             super(view);
             v = view;

@@ -46,8 +46,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     //Methoden
-    /*
-    *Call on Application-Start
+
+    /**
+     * Call on Application-Start
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -228,8 +229,8 @@ public class MainActivity extends AppCompatActivity {
         c.loadHouses();
     }
 
-    /*
-    *Request Permission for File writing
+    /**
+     * Request Permission for File writing
      */
     private void requestPermission() {
 
@@ -241,9 +242,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /*
-    *Call when Permission was requested
-    * Handle Result
+    /**
+     * Call when Permission was requested
+     * Handle Result
      */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
@@ -258,8 +259,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /*
-    *Update content RecyclerView
+    /**
+     * Update content RecyclerView
      */
     public void updateElements() {
         dataSwitch.clear();
@@ -300,8 +301,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-    /*
-    *Create dialog for adding an Element
+    /**
+     * Create dialog for adding an Element
      */
     private void addElement() {
         final Dialog dialog = new Dialog(MainActivity.this);
@@ -349,8 +350,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    /*
-    *Update content of Room-Spinner
+    /**
+     * Update content of Room-Spinner
      */
     public void updateRooms() {
         spinnerRoom.setAdapter(adapterRoom);
@@ -360,8 +361,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /*
-    *Update content of House-Spinner
+    /**
+     * Update content of House-Spinner
      */
     public void updateHouses() {
         spinnerHouse.setAdapter(adapterHouse); //Set Adapter to Spinner
@@ -370,15 +371,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    /*
-    *Return the position of selection in House-Spinner
+    /**
+     * Return the position of selection in House-Spinner
      */
     public int getSelectedHouseIndex() {
         return spinnerHouse.getSelectedItemPosition();
     }
 
-    /*
-    *Return the position of selection in Room-Spinner
+    /**
+     * Return the position of selection in Room-Spinner
      */
     public int getSelectedRoomIndex() {
 
@@ -386,8 +387,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    /*
-    *Call on StartUp when OptionsMenu(three points in the Top-Right) is creating
+    /**
+     * Call on StartUp when OptionsMenu(three points in the Top-Right) is creating
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -396,8 +397,8 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    /*
-    *Call when an item from the OptionsMenu was clicked
+    /**
+     * Call when an item from the OptionsMenu was clicked
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

@@ -41,33 +41,35 @@ public class Control {
     private final List<House> arrayListHouse = new ArrayList<>();
     private MainActivity mainActivity;
 
-    /*
-    *Call when control was created
-    * @param mainActivity object of MainActivity
+    /**
+     * Call when control was created
+     *
+     * @param mainActivity object of MainActivity
      */
-    Control(MainActivity mainActivity) {
+    public Control(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
 
     }
 
-    List<String> getArrayListSpinnerHouse(){
+    public List<String> getArrayListSpinnerHouse() {
         return arrayListSpinnerHouse;
     }
-    List<String> getArrayListSpinnerRoom(){
+
+    public List<String> getArrayListSpinnerRoom() {
         return arrayListSpinnerRoom;
     }
 
-    /*
-    *Delete all saved data
+    /**
+     * Delete all saved data
      */
-    void clearSaves() {
+    public void clearSaves() {
         writeFile("save.json", "");
     }
 
-    /*
-    *Load saved data
+    /**
+     * Load saved data
      */
-    void loadHouses() {
+    public void loadHouses() {
         Log.d("Load-House", "Starting");
         String saves = readFile("save.json");
         Log.d("Load-House", saves);
@@ -113,10 +115,10 @@ public class Control {
 
     }
 
-    /*
-    *Save all data
+    /**
+     * Save all data
      */
-    void saveHouses() {
+    public void saveHouses() {
         try {
             JSONArray jsonHouseArray = new JSONArray();
             for (int i = 0; i < arrayListHouse.size(); i++) {
@@ -161,10 +163,11 @@ public class Control {
         }
     }
 
-    /*
-    *Write file
-    * @param fileName name of file
-    * @param data data to write
+    /**
+     * Write file
+     *
+     * @param fileName name of file
+     * @param data     data to write
      */
     private void writeFile(String fileName, String data) {
         try {
@@ -177,9 +180,10 @@ public class Control {
 
     }
 
-    /*
-    *Read file
-    * @param fileName name of file to read
+    /**
+     * Read file
+     *
+     * @param fileName name of file to read
      */
     private String readFile(String fileName) {
         String ret = "";
@@ -209,11 +213,12 @@ public class Control {
         return ret;
     }
 
-    /*
-    *Update Spinner items
-    * @param spinners type of spinner
+    /**
+     * Update Spinner items
+     *
+     * @param spinners type of spinner
      */
-    void updateSpinner(Spinners spinners) {
+    public void updateSpinner(Spinners spinners) {
         switch (spinners) {
             case house:
                 arrayListSpinnerHouse.clear();
@@ -249,28 +254,30 @@ public class Control {
 
     }
 
-    /*
-    *Add a House to arrayList and update Spinners
-    * @param h object of house
+    /**
+     * Add a House to arrayList and update Spinners
+     *
+     * @param h object of house
      */
-    void addHouse(House h) {
+    public void addHouse(House h) {
         arrayListHouse.add(h);
         updateSpinner(house);
         updateSpinner(room);
     }
 
-    /*
-    *Returns a House by its position in arrayList
-    * @param pos position of house to get
+    /**
+     * Returns a House by its position in arrayList
+     *
+     * @param pos position of house to get
      */
     public House getHouse(int pos) {
         return arrayListHouse.get(pos);
     }
 
-    /*
-    *Remove House by its selected position in spinner
+    /**
+     * Remove House by its selected position in spinner
      */
-    void removeHouse() {
+    public void removeHouse() {
         if (mainActivity.getSelectedHouseIndex() > 0 && mainActivity.getSelectedHouseIndex() < arrayListSpinnerHouse.size() - 1) {
             arrayListHouse.remove(mainActivity.getSelectedHouseIndex() - 1);
             updateSpinner(house);
@@ -279,22 +286,23 @@ public class Control {
         }
     }
 
-    /*
-    *Add Room to arrayList in House
-    * @param name name of room
-    * @param id id of room
+    /**
+     * Add Room to arrayList in House
+     *
+     * @param name name of room
+     * @param id   id of room
      */
-    void addRoom(String name, int id) {
+    public void addRoom(String name, int id) {
         Room r = new Room(id);
         r.setName(name);
         arrayListHouse.get(mainActivity.getSelectedHouseIndex() - 1).addRoom(r);
         updateSpinner(room);
     }
 
-    /*
-    *Remove room from arrayList by selected position in spinner
+    /**
+     * Remove room from arrayList by selected position in spinner
      */
-    void removeRoom() {
+    public void removeRoom() {
         if (mainActivity.getSelectedHouseIndex() > 0 && mainActivity.getSelectedHouseIndex() < arrayListSpinnerRoom.size() - 1) {
             arrayListHouse.get(mainActivity.getSelectedHouseIndex() - 1).removeRoom(mainActivity.getSelectedHouseIndex() - 1);
             updateSpinner(room);
@@ -302,13 +310,14 @@ public class Control {
         }
     }
 
-    /*
-    *Add element to arrayList in Room
-    * @param name name of element
-    * @param id id of element
-    * @param type type of element
+    /**
+     * Add element to arrayList in Room
+     *
+     * @param name name of element
+     * @param id   id of element
+     * @param type type of element
      */
-    void addElement(String name, int id, Element.Type type) {
+    public void addElement(String name, int id, Element.Type type) {
         switch (type) {
             case temperature:
                 arrayListHouse.get(mainActivity.getSelectedHouseIndex() - 1).getRoom(mainActivity.getSelectedRoomIndex() - 1).addElement(new Element(name, id, type));
@@ -322,24 +331,26 @@ public class Control {
         mainActivity.updateElements();
     }
 
-    /*
-    *Remove element by its pos
-    * @param pos position of element to remove
+    /**
+     * Remove element by its pos
+     *
+     * @param pos position of element to remove
      */
-    void removeElement(int pos) {
+    public void removeElement(int pos) {
 
         if (pos >= 0)
             arrayListHouse.get(mainActivity.getSelectedHouseIndex() - 1).getRoom(mainActivity.getSelectedRoomIndex() - 1).removeElement(pos);
         mainActivity.updateElements();
     }
 
-    /*
-    *Prefer data for sending to server
-    * @param type type of element
-    * @param position position of element
-    * @param isChecked state of element
+    /**
+     * Prefer data for sending to server
+     *
+     * @param type      type of element
+     * @param position  position of element
+     * @param isChecked state of element
      */
-    void preferData(final Element.Type type, final int position, final boolean isChecked) {
+    public void preferData(final Element.Type type, final int position, final boolean isChecked) {
         final House h = arrayListHouse.get(mainActivity.getSelectedHouseIndex() - 1);
         Room r = h.getRoom(mainActivity.getSelectedRoomIndex() - 1);
         Element e = r.getElementByPosition(position - 1);
@@ -385,11 +396,12 @@ public class Control {
 
     }
 
-    /*
-    *Send data to Server
-    * @param ip ip of server
-    * @param port port of server
-    * @param values data to send
+    /**
+     * Send data to Server
+     *
+     * @param ip     ip of server
+     * @param port   port of server
+     * @param values data to send
      */
     private void sendData(final String ip, final int port, final String[] values) {
         Backgroundworker bg = new Backgroundworker() {
@@ -410,8 +422,8 @@ public class Control {
 
     }
 
-    /*
-    *Spinner Types
+    /**
+     * Spinner Types
      */
     enum Spinners {
         room, house

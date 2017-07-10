@@ -14,63 +14,69 @@ public class Room {
     // Attribute
 
     // Methoden
-    /*
-    *Call when Room was created
-    * @param id id of room
+
+    /**
+     * Call when Room was created
+     *
+     * @param id id of room
      */
     public Room(int id) {
         this.id = id;
     }
 
-    /*
-    *Get name of room
+    /**
+     * Get name of room
      */
     public String getName() {
         return name;
     }
 
-    /*
-    *Set name of room
-    * @param name name of room
-    */
+    /**
+     * Set name of room
+     *
+     * @param name name of room
+     */
     public void setName(String name) {
         this.name = name;
     }
 
-    /*
-    *Get id of room
-    */
+    /**
+     * Get id of room
+     */
     public int getId() {
         return this.id;
     }
 
-    /*
-    *Add Element to arrayListElement
-    * @param element element to add
+    /**
+     * Add Element to arrayListElement
+     *
+     * @param element element to add
      */
     public void addElement(Element element) {
         arrayListElement.add(element);
     }
 
-    /*
-    *Remove Element from arrayListElement
-    * @param pos position of element to remove
-    */
+    /**
+     * Remove Element from arrayListElement
+     *
+     * @param pos position of element to remove
+     */
     public void removeElement(int pos) {
         Log.e(getName(), "Elements: " + arrayListElement.size());
         arrayListElement.remove(pos);
     }
 
-    /*
-    *Get Element by position from arrayListElement
-    * @param pos position of element to get
+    /**
+     * Get Element by position from arrayListElement
+     *
+     * @param pos position of element to get
      */
     public Element getElementByPosition(int pos) {
         return arrayListElement.get(pos);
     }
 
-    /*
-    *Get size of arrayListElement
+    /**
+     * Get size of arrayListElement
      */
     public int getSizeOfElementList() {
         return arrayListElement.size();
