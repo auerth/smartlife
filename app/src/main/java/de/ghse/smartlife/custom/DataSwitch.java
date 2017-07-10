@@ -21,14 +21,17 @@ public class DataSwitch {
 
     /*
     *Button method to override
+    * @param pos position of element which button is checked
+    * @param isChecked State of switch from element
      */
-    public void onButtonClick(int pos, boolean isCheckec) {
+    public void onCheckChanged(int pos, boolean isChecked) {
 
     }
 
     /*
     *Method to override
     * Call when item in recyclerView clicked
+    * @param position position of clicked element
      */
     public void onItemClick(int position) {
 

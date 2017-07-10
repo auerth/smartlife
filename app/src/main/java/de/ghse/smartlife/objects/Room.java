@@ -16,6 +16,7 @@ public class Room {
     // Methoden
     /*
     *Call when Room was created
+    * @param id id of room
      */
     public Room(int id) {
         this.id = id;
@@ -30,6 +31,7 @@ public class Room {
 
     /*
     *Set name of room
+    * @param name name of room
     */
     public void setName(String name) {
         this.name = name;
@@ -44,6 +46,7 @@ public class Room {
 
     /*
     *Add Element to arrayListElement
+    * @param element element to add
      */
     public void addElement(Element element) {
         arrayListElement.add(element);
@@ -51,6 +54,7 @@ public class Room {
 
     /*
     *Remove Element from arrayListElement
+    * @param pos position of element to remove
     */
     public void removeElement(int pos) {
         Log.e(getName(), "Elements: " + arrayListElement.size());
@@ -59,6 +63,7 @@ public class Room {
 
     /*
     *Get Element by position from arrayListElement
+    * @param pos position of element to get
      */
     public Element getElementByPosition(int pos) {
         return arrayListElement.get(pos);

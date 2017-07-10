@@ -21,6 +21,7 @@ public class House {
 
     /*
     *Set ip for ServerConnection
+    * @param ip ip of server
      */
     public void setIp(String ip) {
         this.ip = ip;
@@ -35,6 +36,7 @@ public class House {
 
     /*
     *Set port for ServerConnection
+    * @param port port of server
      */
     public void setPort(int port) {
         this.port = port;
@@ -42,6 +44,7 @@ public class House {
 
     /*
     *Get room from arrayListRoom
+    * @param pos position of room to get
      */
     public Room getRoom(int pos) {
         return arrayListRoom.get(pos);
@@ -56,6 +59,7 @@ public class House {
 
     /*
     *Add room to arrayListRoom
+    * @param room room to add
      */
     public void addRoom(Room room) {
         this.arrayListRoom.add(room);
@@ -63,6 +67,7 @@ public class House {
 
     /*
     *Remove rome by position from arrayListRoom
+    * @param pos position of room to remove
      */
     public void removeRoom(int pos) {
         arrayListRoom.remove(pos);
@@ -77,6 +82,7 @@ public class House {
 
     /*
     *Set name of house
+    * @param name name of house
      */
     public void setName(String name) {
         this.name = name;

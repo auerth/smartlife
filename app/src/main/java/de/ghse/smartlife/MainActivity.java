@@ -278,7 +278,7 @@ public class MainActivity extends AppCompatActivity {
                 if (c.getHouse(this.getSelectedHouseIndex() - 1).getRoom(this.getSelectedRoomIndex() - 1).getElementByPosition(i).getType() == Element.Type.light) {
                     dataSwitch.add(new DataSwitch(c.getHouse(this.getSelectedHouseIndex() - 1).getRoom(getSelectedRoomIndex() - 1).getElementByPosition(i).getName()) {
                         @Override
-                        public void onButtonClick(int pos, final boolean isChecked) {
+                        public void onCheckChanged(int pos, final boolean isChecked) {
                             c.preferData(Element.Type.light, pos, isChecked);
                         }
                     });

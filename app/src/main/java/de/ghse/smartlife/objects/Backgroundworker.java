@@ -3,12 +3,15 @@ package de.ghse.smartlife.objects;
 import android.os.AsyncTask;
 
 
-public class Backgroundworker extends AsyncTask<String, String, String> {
+public class Backgroundworker extends AsyncTask<Void, Void, String> {
+
+
     /*
     *Call on AsyncTask start
-     */
+    * @param v
+    */
     @Override
-    protected String doInBackground(String... urls) {
+    protected String doInBackground(Void... v) {
         asyncTask();
         return "";
     }
@@ -30,17 +33,19 @@ public class Backgroundworker extends AsyncTask<String, String, String> {
 
     /*
     *Called after doInBackground method
+    * @param v string of doInBackGround
     */
     @Override
-    protected void onPostExecute(String result) {
-        super.onPostExecute(result);
+    protected void onPostExecute(String v) {
+        super.onPostExecute(v);
     }
 
     /*
     *Called when progress changed
+    * @param values
     */
     @Override
-    protected void onProgressUpdate(String... values) {
+    protected void onProgressUpdate(Void... values) {
         super.onProgressUpdate(values);
     }
 }

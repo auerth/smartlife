@@ -9,6 +9,9 @@ public class Element {
 
     /*
     *Call when Element was created
+    * @param name name of element
+    * @param id id of element
+    * @param type type of element
      */
     public Element(String name, int id, Type type) {
         this.name = name;
@@ -41,6 +44,7 @@ public class Element {
 
     /*
     *Set name of Element
+    * @param name name of element
      */
     public void setName(String name) {
         this.name = name;

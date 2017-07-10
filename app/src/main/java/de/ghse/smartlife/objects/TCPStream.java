@@ -12,6 +12,8 @@ public class TCPStream {
 
     /*
     *Call when TCPStream was created
+    * @param ip server ip to send data
+    * @param port server port to send data
      */
     public TCPStream(String ip, int port) throws IOException {
         Socket s = new Socket(ip, port);
@@ -21,6 +23,7 @@ public class TCPStream {
 
     /*
     *Send data to Server
+    * @param data data to send to server
      */
     public int sendData(final String[] data) throws java.io.IOException {
 

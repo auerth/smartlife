@@ -43,6 +43,7 @@ public class Control {
 
     /*
     *Call when control was created
+    * @param mainActivity object of MainActivity
      */
     Control(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
@@ -162,6 +163,8 @@ public class Control {
 
     /*
     *Write file
+    * @param fileName name of file
+    * @param data data to write
      */
     private void writeFile(String fileName, String data) {
         try {
@@ -176,6 +179,7 @@ public class Control {
 
     /*
     *Read file
+    * @param fileName name of file to read
      */
     private String readFile(String fileName) {
         String ret = "";
@@ -207,6 +211,7 @@ public class Control {
 
     /*
     *Update Spinner items
+    * @param spinners type of spinner
      */
     void updateSpinner(Spinners spinners) {
         switch (spinners) {
@@ -246,6 +251,7 @@ public class Control {
 
     /*
     *Add a House to arrayList and update Spinners
+    * @param h object of house
      */
     void addHouse(House h) {
         arrayListHouse.add(h);
@@ -255,6 +261,7 @@ public class Control {
 
     /*
     *Returns a House by its position in arrayList
+    * @param pos position of house to get
      */
     public House getHouse(int pos) {
         return arrayListHouse.get(pos);
@@ -274,6 +281,8 @@ public class Control {
 
     /*
     *Add Room to arrayList in House
+    * @param name name of room
+    * @param id id of room
      */
     void addRoom(String name, int id) {
         Room r = new Room(id);
@@ -295,6 +304,9 @@ public class Control {
 
     /*
     *Add element to arrayList in Room
+    * @param name name of element
+    * @param id id of element
+    * @param type type of element
      */
     void addElement(String name, int id, Element.Type type) {
         switch (type) {
@@ -312,6 +324,7 @@ public class Control {
 
     /*
     *Remove element by its pos
+    * @param pos position of element to remove
      */
     void removeElement(int pos) {
 
@@ -322,6 +335,9 @@ public class Control {
 
     /*
     *Prefer data for sending to server
+    * @param type type of element
+    * @param position position of element
+    * @param isChecked state of element
      */
     void preferData(final Element.Type type, final int position, final boolean isChecked) {
         final House h = arrayListHouse.get(mainActivity.getSelectedHouseIndex() - 1);
@@ -371,6 +387,9 @@ public class Control {
 
     /*
     *Send data to Server
+    * @param ip ip of server
+    * @param port port of server
+    * @param values data to send
      */
     private void sendData(final String ip, final int port, final String[] values) {
         Backgroundworker bg = new Backgroundworker() {
