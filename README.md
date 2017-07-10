@@ -15,7 +15,7 @@ Just download the project and open it in android studio. (maybe you have to crea
 Read the wiki [here](https://github.com/auerth/smartlife/wiki)
 
 ## Credits
-Tobias Bühler - Dokumentation
+Tobias Bühler - Dokumentation, 
 Thorben Auer  - Application
 
 ## License
