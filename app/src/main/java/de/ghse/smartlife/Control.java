@@ -46,30 +46,30 @@ public class Control {
      *
      * @param mainActivity object of MainActivity
      */
-    public Control(MainActivity mainActivity) {
+    Control(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
 
     }
 
-    public List<String> getArrayListSpinnerHouse() {
+    List<String> getArrayListSpinnerHouse() {
         return arrayListSpinnerHouse;
     }
 
-    public List<String> getArrayListSpinnerRoom() {
+    List<String> getArrayListSpinnerRoom() {
         return arrayListSpinnerRoom;
     }
 
     /**
      * Delete all saved data
      */
-    public void clearSaves() {
+    void clearSaves() {
         writeFile("save.json", "");
     }
 
     /**
      * Load saved data
      */
-    public void loadHouses() {
+    void loadHouses() {
         Log.d("Load-House", "Starting");
         String saves = readFile("save.json");
         Log.d("Load-House", saves);
@@ -118,7 +118,7 @@ public class Control {
     /**
      * Save all data
      */
-    public void saveHouses() {
+    void saveHouses() {
         try {
             JSONArray jsonHouseArray = new JSONArray();
             for (int i = 0; i < arrayListHouse.size(); i++) {
@@ -218,7 +218,7 @@ public class Control {
      *
      * @param spinners type of spinner
      */
-    public void updateSpinner(Spinners spinners) {
+    void updateSpinner(Spinners spinners) {
         switch (spinners) {
             case house:
                 arrayListSpinnerHouse.clear();
@@ -259,7 +259,7 @@ public class Control {
      *
      * @param h object of house
      */
-    public void addHouse(House h) {
+    void addHouse(House h) {
         arrayListHouse.add(h);
         updateSpinner(house);
         updateSpinner(room);
@@ -270,14 +270,14 @@ public class Control {
      *
      * @param pos position of house to get
      */
-    public House getHouse(int pos) {
+    House getHouse(int pos) {
         return arrayListHouse.get(pos);
     }
 
     /**
      * Remove House by its selected position in spinner
      */
-    public void removeHouse() {
+    void removeHouse() {
         if (mainActivity.getSelectedHouseIndex() > 0 && mainActivity.getSelectedHouseIndex() < arrayListSpinnerHouse.size() - 1) {
             arrayListHouse.remove(mainActivity.getSelectedHouseIndex() - 1);
             updateSpinner(house);
@@ -292,7 +292,7 @@ public class Control {
      * @param name name of room
      * @param id   id of room
      */
-    public void addRoom(String name, int id) {
+    void addRoom(String name, int id) {
         Room r = new Room(id);
         r.setName(name);
         arrayListHouse.get(mainActivity.getSelectedHouseIndex() - 1).addRoom(r);
@@ -302,7 +302,7 @@ public class Control {
     /**
      * Remove room from arrayList by selected position in spinner
      */
-    public void removeRoom() {
+    void removeRoom() {
         if (mainActivity.getSelectedHouseIndex() > 0 && mainActivity.getSelectedHouseIndex() < arrayListSpinnerRoom.size() - 1) {
             arrayListHouse.get(mainActivity.getSelectedHouseIndex() - 1).removeRoom(mainActivity.getSelectedHouseIndex() - 1);
             updateSpinner(room);
@@ -317,7 +317,7 @@ public class Control {
      * @param id   id of element
      * @param type type of element
      */
-    public void addElement(String name, int id, Element.Type type) {
+    void addElement(String name, int id, Element.Type type) {
         switch (type) {
             case temperature:
                 arrayListHouse.get(mainActivity.getSelectedHouseIndex() - 1).getRoom(mainActivity.getSelectedRoomIndex() - 1).addElement(new Element(name, id, type));
@@ -336,7 +336,8 @@ public class Control {
      *
      * @param pos position of element to remove
      */
-    public void removeElement(int pos) {
+
+    void removeElement(int pos) {
 
         if (pos >= 0)
             arrayListHouse.get(mainActivity.getSelectedHouseIndex() - 1).getRoom(mainActivity.getSelectedRoomIndex() - 1).removeElement(pos);
@@ -350,7 +351,7 @@ public class Control {
      * @param position  position of element
      * @param isChecked state of element
      */
-    public void preferData(final Element.Type type, final int position, final boolean isChecked) {
+    void preferData(final Element.Type type, final int position, final boolean isChecked) {
         final House h = arrayListHouse.get(mainActivity.getSelectedHouseIndex() - 1);
         Room r = h.getRoom(mainActivity.getSelectedRoomIndex() - 1);
         Element e = r.getElementByPosition(position - 1);
