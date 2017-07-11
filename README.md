@@ -7,6 +7,8 @@ Smartlife is an Application which allows you to send data to a server.
 - [Layout-Files](app/src/main/res/layout)
 - [Menu-Files](app/src/main/res/menu)
 - [Value-Files](app/src/main/res/values)
+- [JavaDoc](https://auerth.github.io/smartlife/)
+
 
 ## Installation
 Just download the project and open it in android studio. (maybe you have to create a project first named "smartlife")
