@@ -1,6 +1,7 @@
 package de.ghse.smartlife;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -35,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
     // Attribute
     private Spinner spinnerHouse;               //Spinner-House
     private Spinner spinnerRoom;                //Spinner-Room
+    private int lastSelectedRoom = 0;
+    private int lastSelectedHouse = 0;
+
     private RecyclerView recyclerView;          //RecyclerView
     private ArrayAdapter<String> adapterHouse;  //Adapter for House
     private ArrayAdapter<String> adapterRoom;   //Adapter for Room
@@ -84,14 +88,14 @@ public class MainActivity extends AppCompatActivity {
                             final Dialog dialog = new Dialog(MainActivity.this);
                             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                             dialog.setCancelable(true);
-                            dialog.setContentView(R.layout.dialog_house);
+                            dialog.setContentView(R.layout.custom_dialog);
                             TextView tv = (TextView) dialog.findViewById(R.id.tvTitel);
-                            tv.setText(R.string.dialogHouse);
-                            final EditText et = (EditText) dialog.findViewById(R.id.etNameHouse);
-                            Button dialogButton = (Button) dialog.findViewById(R.id.btnOkayHouse);
+                            tv.setText(R.string.custom_dialog);
+                            final EditText et = (EditText) dialog.findViewById(R.id.etName);
+                            Button dialogButton = (Button) dialog.findViewById(R.id.btnDialogOkay);
 
-                            final EditText etPort = (EditText) dialog.findViewById(R.id.etPortHouse);
-                            final EditText etIp = (EditText) dialog.findViewById(R.id.etIpHouse);
+                            final EditText etPort = (EditText) dialog.findViewById(R.id.etPort);
+                            final EditText etIp = (EditText) dialog.findViewById(R.id.etIp);
                             dialogButton.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
@@ -111,9 +115,15 @@ public class MainActivity extends AppCompatActivity {
                                     }
                                 }
                             });
+                            dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                                @Override
+                                public void onCancel(DialogInterface dialog) {
+                                    spinnerHouse.setSelection(lastSelectedHouse);
+                                }
+                            });
                             dialog.show();
                         } else {
-
+                            lastSelectedHouse = position;
                             c.updateSpinner(Control.Spinners.room);
                         }
                         //Load Rooms of House
@@ -154,16 +164,16 @@ public class MainActivity extends AppCompatActivity {
                             final Dialog dialog = new Dialog(MainActivity.this);
                             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                             dialog.setCancelable(true);
-                            dialog.setContentView(R.layout.dialog_house);
+                            dialog.setContentView(R.layout.custom_dialog);
                             TextView tv = (TextView) dialog.findViewById(R.id.tvTitel);
                             tv.setText(R.string.dialogRoom);
-                            final EditText etPort = (EditText) dialog.findViewById(R.id.etPortHouse);
-                            final EditText etIp = (EditText) dialog.findViewById(R.id.etIpHouse);
+                            final EditText etPort = (EditText) dialog.findViewById(R.id.etPort);
+                            final EditText etIp = (EditText) dialog.findViewById(R.id.etIp);
                             etIp.setVisibility(View.GONE);
                             etPort.setVisibility(View.VISIBLE);
                             etPort.setHint("ID");
-                            final EditText et = (EditText) dialog.findViewById(R.id.etNameHouse);
-                            Button dialogButton = (Button) dialog.findViewById(R.id.btnOkayHouse);
+                            final EditText et = (EditText) dialog.findViewById(R.id.etName);
+                            Button dialogButton = (Button) dialog.findViewById(R.id.btnDialogOkay);
                             dialog.setCancelable(true);
                             dialogButton.setOnClickListener(new View.OnClickListener() {
                                 @Override
@@ -179,9 +189,15 @@ public class MainActivity extends AppCompatActivity {
                                     }
                                 }
                             });
+                            dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                                @Override
+                                public void onCancel(DialogInterface dialog) {
+                                    spinnerRoom.setSelection(lastSelectedRoom);
+                                }
+                            });
                             dialog.show();
                         } else {
-
+                            lastSelectedRoom = position;
                             updateElements();
                         }
 
@@ -308,15 +324,18 @@ public class MainActivity extends AppCompatActivity {
         final Dialog dialog = new Dialog(MainActivity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setCancelable(true);
-        dialog.setContentView(R.layout.dialog_element);
+        dialog.setContentView(R.layout.custom_dialog);
         TextView tv = (TextView) dialog.findViewById(R.id.tvTitel);
         tv.setText(R.string.dialogElement);
-        final EditText etName = (EditText) dialog.findViewById(R.id.etElementName);
-        final EditText etId = (EditText) dialog.findViewById(R.id.etID);
+        final EditText etName = (EditText) dialog.findViewById(R.id.etName);
+        final EditText etIp = (EditText) dialog.findViewById(R.id.etIp);
+        etIp.setVisibility(View.GONE);
+        final EditText etId = (EditText) dialog.findViewById(R.id.etPort);
         etId.setHint(R.string.hintId);
 
         final Spinner spinnerType = (Spinner) dialog.findViewById(R.id.spinnerType);
-        Button dialogButton = (Button) dialog.findViewById(R.id.btnOkayElement);
+        spinnerType.setVisibility(View.VISIBLE);
+        Button dialogButton = (Button) dialog.findViewById(R.id.btnDialogOkay);
         dialog.setCancelable(true);
         adapterType = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1); //adapter Initialisierung (House)
         adapterType.add("Light");

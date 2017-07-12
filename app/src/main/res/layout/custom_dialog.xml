@@ -15,7 +15,7 @@
         android:textSize="20sp" />
 
     <EditText
-        android:id="@+id/etNameHouse"
+        android:id="@+id/etName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -27,7 +27,7 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/etIpHouse"
+        android:id="@+id/etIp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -39,7 +39,7 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/etPortHouse"
+        android:id="@+id/etPort"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -49,13 +49,48 @@
         android:gravity="center"
         android:hint="@string/hintPort"
         android:inputType="number" />
-
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/spinnerType"
+        android:layout_marginRight="11dp"
+        android:visibility="gone"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="11dp"
+        />
     <Button
-        android:id="@+id/btnOkayHouse"
+        android:id="@+id/btnDialogOkay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:text="@string/dialogOkay"
+        android:layout_marginRight="11dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:text="@string/dialogOkay" />
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="11dp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="match_parent">
+        <Button
+            android:id="@+id/btnOkay"
+            android:layout_width="182dp"
+            android:layout_height="wrap_content"
+            android:text="@string/dialogOkay"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="11dp"
+            android:layout_marginEnd="11dp" />
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="182dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/btnDelete" />
+    </RelativeLayout>
+
+
 </LinearLayout>

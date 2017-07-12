@@ -270,7 +270,7 @@ public class Control {
      *
      * @param pos position of house to get
      */
-    House getHouse(int pos) {
+    public House getHouse(int pos) {
         return arrayListHouse.get(pos);
     }
 
@@ -367,17 +367,17 @@ public class Control {
             final Dialog dialog = new Dialog(mainActivity);
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             dialog.setCancelable(true);
-            dialog.setContentView(R.layout.dialog_house);
+            dialog.setContentView(R.layout.custom_dialog);
             TextView tv = (TextView) dialog.findViewById(R.id.tvTitel);
             tv.setText(R.string.dialogTemperature);
-            final EditText etPort = (EditText) dialog.findViewById(R.id.etPortHouse);
-            final EditText etIp = (EditText) dialog.findViewById(R.id.etIpHouse);
+            final EditText etPort = (EditText) dialog.findViewById(R.id.etPort);
+            final EditText etIp = (EditText) dialog.findViewById(R.id.etIp);
             etIp.setVisibility(View.GONE);
             etPort.setVisibility(View.VISIBLE);
             etPort.setHint("Temperature");
-            final EditText et = (EditText) dialog.findViewById(R.id.etNameHouse);
+            final EditText et = (EditText) dialog.findViewById(R.id.etName);
             et.setVisibility(View.GONE);
-            Button dialogButton = (Button) dialog.findViewById(R.id.btnOkayHouse);
+            Button dialogButton = (Button) dialog.findViewById(R.id.btnDialogOkay);
             dialog.setCancelable(true);
             final Control c = this;
             dialogButton.setOnClickListener(new View.OnClickListener() {
