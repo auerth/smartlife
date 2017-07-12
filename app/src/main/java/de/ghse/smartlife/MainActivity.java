@@ -19,6 +19,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,6 +30,7 @@ import de.ghse.smartlife.custom.CustomAdapter;
 import de.ghse.smartlife.custom.DataSwitch;
 import de.ghse.smartlife.objects.Element;
 import de.ghse.smartlife.objects.House;
+import de.ghse.smartlife.objects.Room;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -141,7 +143,74 @@ public class MainActivity extends AppCompatActivity {
         spinnerHouse.setOnLongClickListener(new AdapterView.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                c.removeHouse();
+                final int pos = spinnerRoom.getSelectedItemPosition();
+
+                switch (pos) {
+                    case 0:
+                        Log.d("Spinner_R", "Placeholder");//Place holder NOTHING to DO
+                        break;
+                    default:
+                        if (pos != c.getArrayListSpinnerHouse().size() - 1) {
+                            //Add House to List
+                            final Dialog dialog = new Dialog(MainActivity.this);
+                            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                            dialog.setCancelable(true);
+                            dialog.setContentView(R.layout.custom_dialog);
+                            TextView tv = (TextView) dialog.findViewById(R.id.tvTitel);
+                            tv.setText(R.string.custom_dialog);
+                            final EditText et = (EditText) dialog.findViewById(R.id.etName);
+                            Button dialogButton = (Button) dialog.findViewById(R.id.btnDialogOkay);
+                            dialogButton.setVisibility(View.GONE);
+                            final RelativeLayout rl = (RelativeLayout)dialog.findViewById(R.id.editLayout);
+                            rl.setVisibility(View.VISIBLE);
+                            final EditText etPort = (EditText) dialog.findViewById(R.id.etPort);
+                            final EditText etIp = (EditText) dialog.findViewById(R.id.etIp);
+                            et.setText(c.getHouse(pos-1).getName());
+                            etIp.setText(c.getHouse(pos-1).getIp());
+                            etPort.setText(String.valueOf(c.getHouse(pos-1).getPort()));
+                            Button dialogButtonDelete = (Button)dialog.findViewById(R.id.btnDelete);
+                            Button btnOkay = (Button)dialog.findViewById(R.id.btnOkay);
+                            dialogButtonDelete.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    c.removeHouse();
+                                    dialog.dismiss();
+                                }
+                            });
+                            btnOkay.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();//Beim Okay klicken!
+                                    String houseName = et.getText().toString();
+                                    String ip = etIp.getText().toString();
+                                    int port = Integer.parseInt(etPort.getText().toString());
+                                    if (houseName.length() > 0 && ip.length() > 0 && port > 0) {
+                                        c.getHouse(pos-1).setName(houseName);
+                                        c.getHouse(pos-1).setIp(ip);
+                                        c.getHouse(pos-1).setPort(port);
+                                        Toast.makeText(MainActivity.this, "House \"" + houseName + "\" edited", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(MainActivity.this, "Please set a name", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                            dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                                @Override
+                                public void onCancel(DialogInterface dialog) {
+                                }
+                            });
+                            dialog.show();
+                        } else {
+                            c.updateSpinner(Control.Spinners.room);
+                        }
+                        //Load Rooms of House
+
+                        break;
+                }
+
+
+
+
                 return false;
             }
         });
@@ -214,7 +283,76 @@ public class MainActivity extends AppCompatActivity {
         spinnerRoom.setOnLongClickListener(new AdapterView.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                c.removeRoom();
+                final int pos = spinnerRoom.getSelectedItemPosition();
+
+                switch (pos) {
+                    case 0:
+                        Log.d("Spinner_R", "Placeholder");//Place holder NOTHING to DO
+                        break;
+                    default:
+
+                        if (pos != c.getArrayListSpinnerRoom().size() - 1) {
+                            Log.e("Spinner_R", ""+pos);//Place holder NOTHING to DO
+                            final Dialog dialog = new Dialog(MainActivity.this);
+                            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                            dialog.setCancelable(true);
+                            dialog.setContentView(R.layout.custom_dialog);
+                            TextView tv = (TextView) dialog.findViewById(R.id.tvTitel);
+                            tv.setText(R.string.dialogRoom);
+                            final EditText etId = (EditText) dialog.findViewById(R.id.etPort);
+                            final EditText etIp = (EditText) dialog.findViewById(R.id.etIp);
+                            etIp.setVisibility(View.GONE);
+                            etId.setVisibility(View.VISIBLE);
+                            etId.setHint("ID");
+                            String oldName = c.getHouse(MainActivity.this.getSelectedHouseIndex()-1).getRoom(pos-1).getName();
+                            int oldId = c.getHouse(MainActivity.this.getSelectedHouseIndex()-1).getRoom(pos-1).getId();
+
+                            final EditText et = (EditText) dialog.findViewById(R.id.etName);
+                            final RelativeLayout rl = (RelativeLayout)dialog.findViewById(R.id.editLayout);
+                            rl.setVisibility(View.VISIBLE);
+
+                            et.setText(oldName);
+                            etId.setText(String.valueOf(oldId));
+                            Button dialogButton = (Button) dialog.findViewById(R.id.btnDialogOkay);
+                            dialogButton.setVisibility(View.GONE);
+
+                            Button dialogButtonDelete = (Button)dialog.findViewById(R.id.btnDelete);
+                            dialogButtonDelete.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    c.removeRoom();
+                                    dialog.dismiss();
+                                }
+                            });
+                            Button btnOkay = (Button)dialog.findViewById(R.id.btnOkay);
+                            dialog.setCancelable(true);
+                            btnOkay.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();//Beim Okay klicken!
+                                    String roomName = et.getText().toString();
+                                    String roomId = etId.getText().toString();
+                                    if (roomName.length() > 0) {
+                                        c.getHouse(MainActivity.this.getSelectedHouseIndex()-1).getRoom(pos-1).setName(roomName);
+                                        c.getHouse(MainActivity.this.getSelectedHouseIndex()-1).getRoom(pos-1).setId(Integer.parseInt(roomId));
+                                        Toast.makeText(MainActivity.this, "Room \"" + roomName + "\" edited", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(MainActivity.this, "Please set a name", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+
+                            dialog.show();
+                        } else {
+                            updateElements();
+                        }
+
+                        break;
+                }
+
+
+
+
                 return false;
             }
         });

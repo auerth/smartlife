@@ -48,6 +48,13 @@ public class Room {
     }
 
     /**
+     * Get id of room
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    /**
      * Add Element to arrayListElement
      *
      * @param element element to add
